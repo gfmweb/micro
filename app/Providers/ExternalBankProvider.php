@@ -6,18 +6,18 @@ use App\Interfaces\ExternalBankInterface;
 use App\Services\CBRgetService;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class ExternalBankProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      */
     public function register(): void
     {
-
+        $this->app->bind(ExternalBankInterface::class, CBRgetService::class);
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      */
     public function boot(): void
     {
